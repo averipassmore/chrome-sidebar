@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "sidebar",
+  "description": "",
+  "version": "1.0.0",
+  "side_panel": {
+    "default_path": "index.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["contentScript.js"]
+    }
+  ],
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "tabs",
+    "sidePanel",
+    "storage",
+    "webNavigation"
+  ],
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}
