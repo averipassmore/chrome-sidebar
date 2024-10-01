@@ -3,7 +3,7 @@ chrome.webNavigation.onCompleted.addListener(async (e) => {
     const tabs = await getTabsFromStorage();
 
     // ensure last tab is not the same as the next tab
-    if (tabs[tabs.length - 1] !== e?.url) {
+    if (tabs.tabs[tabs.tabs.length - 1] !== e?.url) {
       await chrome.storage.local.set({ "tabs": [...tabs.tabs, e?.url]})
     }
   };
